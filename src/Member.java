@@ -20,22 +20,31 @@ class Member{
     }
 
     public void addBorrowedBook(Book book){
-//        TODO: add book to borrowedBooks if available limit = 5
+//        TODO: make throws
+        if (!book.isAvailable()) return;
+        if (borrowedBooks.size() > 5) return;
+        borrowedBooks.add(book);
     }
 
     public void removeBorrowedBook(Book book){
-//        TODO: remove book from borrowedBooks
+//        TODO: add to book id to message
+        var ind = borrowedBooks.indexOf(book);
+        if (ind == -1) throw new  IllegalArgumentException(String.format("Member with id %d dont get book with id", id));
+        borrowedBooks.remove(ind);
     }
 
     @Override
     public boolean equals(Object obj) {
-//        TODO: ovverride for current class
-        return super.equals(obj);
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (obj.getClass() != this.getClass()) return false;
+        var memb = (Member) obj;
+        return id == memb.id &&
+                name.equals(memb.name);
     }
 
     @Override
     public int hashCode() {
-//        TODO: override for current class
-        return super.hashCode();
+        return 31 * id * name.hashCode() * borrowedBooks.hashCode();
     }
 }

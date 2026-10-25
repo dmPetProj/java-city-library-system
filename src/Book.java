@@ -1,5 +1,5 @@
 class Book{
-
+    //        TODO: make getter to book id, autor name
     private final int bookID;
 
     private final String name;
@@ -17,7 +17,6 @@ class Book{
 
     @Override
     public boolean equals(Object obj) {
-        // TODO: override to current class
         if (this == obj) return true;
         if (obj==null) return false;
         if (this.getClass() != obj.getClass()) return false;
@@ -30,7 +29,6 @@ class Book{
 
     @Override
     public int hashCode() {
-        // TODO: override to current class
         return 31 * bookID * name.hashCode() * auter.hashCode();
     }
 
@@ -39,7 +37,6 @@ class Book{
     }
 
     public void setAvailable(boolean status) {
-        // TODO: validate and set
         if (isAvailable == status) throw new IllegalArgumentException(String.format("Book is %s available. Changes is not need", isAvailable ? "" : "not") );
         isAvailable = status;
     }
