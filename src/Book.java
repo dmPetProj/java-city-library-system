@@ -1,5 +1,4 @@
 class Book{
-    //        TODO: make getter to book id, autor name
     private final int bookID;
 
     private final String name;

@@ -1,3 +1,6 @@
+import exceptions.BookNotAvailableException;
+import exceptions.BorrowLimitExceededException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,17 +22,19 @@ class Member{
         return List.copyOf(borrowedBooks);
     }
 
-    public void addBorrowedBook(Book book){
-//        TODO: make throws
-        if (!book.isAvailable()) return;
-        if (borrowedBooks.size() > 5) return;
+    public void addBorrowedBook(Book book) throws BookNotAvailableException, BorrowLimitExceededException {
+        if (!book.isAvailable())
+            throw new BookNotAvailableException(book.getBookID());
+        if (borrowedBooks.size() > 5)
+            throw new BorrowLimitExceededException(id, 5);
         borrowedBooks.add(book);
     }
 
     public void removeBorrowedBook(Book book){
 //        TODO: add to book id to message
         var ind = borrowedBooks.indexOf(book);
-        if (ind == -1) throw new  IllegalArgumentException(String.format("Member with id %d dont get book with id", id));
+        if (ind == -1)
+            throw new  IllegalArgumentException(String.format("Member with id %d dont get book with id %d", id, book.getBookID()));
         borrowedBooks.remove(ind);
     }
 
