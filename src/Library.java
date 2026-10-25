@@ -7,12 +7,13 @@ class Library {
 
     private final Map<Integer, Member> memberByID = new HashMap<>();
 
-    public void addBook(){
-//        TODO: check in map add if not contains
+    public void addBook(Book book){
+        if (!bookByID.containsKey(book.getBookID()))
+            bookByID.put(book.getBookID(), book);
     }
 
-    public void regMember(){
-//        TODO: check in map add if not contains
+    public void regMember(Member member){
+
     }
 
     public void borrow(int memberID, int bookID){
