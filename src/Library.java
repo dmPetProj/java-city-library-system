@@ -1,6 +1,4 @@
-import exceptions.BookNotAvailableException;
 import exceptions.BookNotFoundException;
-import exceptions.BorrowLimitExceededException;
 import exceptions.MemberNotFoundException;
 
 import java.util.HashMap;
@@ -37,6 +35,7 @@ class Library {
         var book = bookByID.get(bookID);
         try{
             member.addBorrowedBook(book);
+            book.setAvailable(false);
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
@@ -48,6 +47,7 @@ class Library {
         var book = bookByID.get(bookID);
         try{
             member.addBorrowedBook(book);
+            book.setAvailable(true);
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
