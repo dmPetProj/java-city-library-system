@@ -1,4 +1,6 @@
+import exceptions.BookNotAvailableException;
 import exceptions.BookNotFoundException;
+import exceptions.BorrowLimitExceededException;
 import exceptions.MemberNotFoundException;
 
 import java.util.HashMap;
@@ -29,27 +31,20 @@ class Library {
         memberByID.put(member.getId(), member);
     }
 
-    public void borrow(int memberID, int bookID) throws MemberNotFoundException, BookNotFoundException {
+    public void borrow(int memberID, int bookID) throws MemberNotFoundException, BookNotAvailableException, BorrowLimitExceededException {
         validateById(memberID, bookID);
         var member = memberByID.get(memberID);
         var book = bookByID.get(bookID);
-        try{
-            member.addBorrowedBook(book);
-            book.setAvailable(false);
-        } catch (Exception e){
-            System.out.println(e.getMessage());
-        }
+        member.addBorrowedBook(book);
+        book.setAvailable(false);
+
     }
 
     public void returnBook(int memberID, int bookID) throws MemberNotFoundException, BookNotFoundException {
         validateById(memberID, bookID);
         var member = memberByID.get(memberID);
         var book = bookByID.get(bookID);
-        try{
-            member.addBorrowedBook(book);
-            book.setAvailable(true);
-        } catch (Exception e){
-            System.out.println(e.getMessage());
-        }
+        member.removeBorrowedBook(book);
+        book.setAvailable(true);
     }
 }
