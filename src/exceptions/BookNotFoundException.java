@@ -1,8 +1,8 @@
 package exceptions;
 
-class BookNotFoundException extends BookNotAvailableException {
+public class BookNotFoundException extends BookNotAvailableException {
 
-    BookNotFoundException(int bookID) {
+    public BookNotFoundException(int bookID) {
         super(bookID);
     }
 

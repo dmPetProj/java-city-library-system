@@ -1,11 +1,11 @@
 package exceptions;
 
-class MemberNotFoundException extends Exception {
+public class MemberNotFoundException extends Exception {
 
     private final int memberID;
 
 
-    MemberNotFoundException(int memberID) {
+    public MemberNotFoundException(int memberID) {
         this.memberID = memberID;
     }
 

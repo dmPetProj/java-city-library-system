@@ -1,11 +1,11 @@
 package exceptions;
 
-class BookNotAvailableException extends Exception {
+public class BookNotAvailableException extends Exception {
 
     private final int bookID;
 
 
-    BookNotAvailableException(int bookID) {
+    public BookNotAvailableException(int bookID) {
         this.bookID = bookID;
     }
 

@@ -1,13 +1,13 @@
 package exceptions;
 
-class BorrowLimitExceededException extends Exception {
+public class BorrowLimitExceededException extends Exception {
 
     private final int memberID;
 
     private final int limit;
 
 
-    BorrowLimitExceededException(int memberID, int limit) {
+    public BorrowLimitExceededException(int memberID, int limit) {
         this.memberID = memberID;
         this.limit = limit;
     }
