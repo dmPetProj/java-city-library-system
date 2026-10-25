@@ -13,7 +13,7 @@ class Member{
     private final List<Book> borrowedBooks = new ArrayList<>();
 
 
-    Member(int id, String name) {
+    public Member(int id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -50,5 +50,13 @@ class Member{
     @Override
     public int hashCode() {
         return 31 * id * name.hashCode() * borrowedBooks.hashCode();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
     }
 }
