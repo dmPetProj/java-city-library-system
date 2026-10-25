@@ -16,7 +16,6 @@ public class BookNotAvailableException extends Exception {
 
     @Override
     public String getMessage() {
-//        TODO: make message
-        return "";
+        return String.format("Book with ID %d is not available", bookID);
     }
 }

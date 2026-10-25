@@ -8,7 +8,6 @@ public class BookNotFoundException extends BookNotAvailableException {
 
     @Override
     public String getMessage() {
-//        TODO: override message
-        return "";
+        return String.format("Book with ID %d does not exist", getBookID());
     }
 }

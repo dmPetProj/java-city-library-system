@@ -12,7 +12,7 @@ public class MemberNotFoundException extends Exception {
     @Override
     public String getMessage() {
 //        TODO: override message
-        return super.getMessage();
+        return String.format("Member with ID %d does not exist", memberID);
     }
 
     public int getMemberID() {

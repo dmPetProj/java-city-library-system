@@ -31,7 +31,6 @@ class Member{
     }
 
     public void removeBorrowedBook(Book book){
-//        TODO: add to book id to message
         var ind = borrowedBooks.indexOf(book);
         if (ind == -1)
             throw new  IllegalArgumentException(String.format("Member with id %d dont get book with id %d", id, book.getBookID()));

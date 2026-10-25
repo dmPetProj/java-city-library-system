@@ -15,7 +15,7 @@ public class BorrowLimitExceededException extends Exception {
     @Override
     public String getMessage() {
 //        TODO: override message
-        return super.getMessage();
+        return String.format("Member with %d has reached limit 5", memberID);
     }
 
     public int getLimit() {
