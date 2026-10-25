@@ -18,20 +18,29 @@ class Book{
     @Override
     public boolean equals(Object obj) {
         // TODO: override to current class
-        return false;
+        if (this == obj) return true;
+        if (obj==null) return false;
+        if (this.getClass() != obj.getClass()) return false;
+        var anotherBook = (Book) obj;
+        return bookID == anotherBook.bookID &&
+                name.equals(anotherBook.name) &&
+                auter.equals(anotherBook.auter) &&
+                isAvailable == anotherBook.isAvailable();
     }
 
     @Override
     public int hashCode() {
         // TODO: override to current class
-        return super.hashCode();
+        return 31 * bookID * name.hashCode() * auter.hashCode();
     }
 
     public boolean isAvailable() {
         return isAvailable;
     }
 
-    public void setAvailable(boolean available) {
+    public void setAvailable(boolean status) {
         // TODO: validate and set
+        if (isAvailable == status) throw new IllegalArgumentException(String.format("Book is %s available. Changes is not need", isAvailable ? "" : "not") );
+        isAvailable = status;
     }
 }
