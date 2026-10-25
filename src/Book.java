@@ -36,6 +36,18 @@ class Book{
         return isAvailable;
     }
 
+    public int getBookID() {
+        return bookID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAuter() {
+        return auter;
+    }
+
     public void setAvailable(boolean status) {
         if (isAvailable == status) throw new IllegalArgumentException(String.format("Book is %s available. Changes is not need", isAvailable ? "" : "not") );
         isAvailable = status;
