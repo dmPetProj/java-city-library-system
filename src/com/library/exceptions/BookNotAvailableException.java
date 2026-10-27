@@ -1,4 +1,4 @@
-package exceptions;
+package com.library.exceptions;
 
 public class BookNotAvailableException extends Exception {
 
@@ -16,6 +16,6 @@ public class BookNotAvailableException extends Exception {
 
     @Override
     public String getMessage() {
-        return String.format("Book with ID %d is not available", bookID);
+        return String.format("com.library.Book with ID %d is not available", bookID);
     }
 }

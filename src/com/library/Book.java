@@ -1,3 +1,5 @@
+package com.library;
+
 public class Book{
     private final int bookID;
 
@@ -48,7 +50,7 @@ public class Book{
     }
 
     public void setAvailable(boolean status) {
-        if (isAvailable == status) throw new IllegalArgumentException(String.format("Book is %s available. Changes is not need", isAvailable ? "" : "not") );
+        if (isAvailable == status) throw new IllegalArgumentException(String.format("com.library.Book is %s available. Changes is not need", isAvailable ? "" : "not") );
         isAvailable = status;
     }
 }

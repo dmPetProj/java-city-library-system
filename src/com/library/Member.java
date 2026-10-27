@@ -1,5 +1,7 @@
-import exceptions.BookNotAvailableException;
-import exceptions.BorrowLimitExceededException;
+package com.library;
+
+import com.library.exceptions.BookNotAvailableException;
+import com.library.exceptions.BorrowLimitExceededException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +35,7 @@ public class Member{
     public void removeBorrowedBook(Book book){
         var ind = borrowedBooks.indexOf(book);
         if (ind == -1)
-            throw new  IllegalArgumentException(String.format("Member with id %d didnt get book with id %d", id, book.getBookID()));
+            throw new  IllegalArgumentException(String.format("com.library.Member with id %d didnt get book with id %d", id, book.getBookID()));
         borrowedBooks.remove(ind);
     }
 

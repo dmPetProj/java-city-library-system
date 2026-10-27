@@ -1,7 +1,9 @@
-import exceptions.BookNotAvailableException;
-import exceptions.BookNotFoundException;
-import exceptions.BorrowLimitExceededException;
-import exceptions.MemberNotFoundException;
+package com.library;
+
+import com.library.exceptions.BookNotAvailableException;
+import com.library.exceptions.BookNotFoundException;
+import com.library.exceptions.BorrowLimitExceededException;
+import com.library.exceptions.MemberNotFoundException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,13 +23,13 @@ public class Library {
 
     public void addBook(Book book){
         if (bookByID.containsKey(book.getBookID()))
-            throw new IllegalArgumentException(String.format("Book with id %d is already added", book.getBookID()));
+            throw new IllegalArgumentException(String.format("com.library.Book with id %d is already added", book.getBookID()));
         bookByID.put(book.getBookID(), book);
     }
 
     public void regMember(Member member){
         if (memberByID.containsKey(member.getId()))
-            throw new IllegalArgumentException(String.format("Member with id %d is already added", member.getId()));
+            throw new IllegalArgumentException(String.format("com.library.Member with id %d is already added", member.getId()));
         memberByID.put(member.getId(), member);
     }
 

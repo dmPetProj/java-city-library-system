@@ -1,4 +1,4 @@
-package exceptions;
+package com.library.exceptions;
 
 public class BookNotFoundException extends BookNotAvailableException {
 
@@ -8,6 +8,6 @@ public class BookNotFoundException extends BookNotAvailableException {
 
     @Override
     public String getMessage() {
-        return String.format("Book with ID %d does not exist", getBookID());
+        return String.format("com.library.Book with ID %d does not exist", getBookID());
     }
 }

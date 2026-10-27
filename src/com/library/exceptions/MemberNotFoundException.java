@@ -1,4 +1,4 @@
-package exceptions;
+package com.library.exceptions;
 
 public class MemberNotFoundException extends Exception {
 
@@ -12,7 +12,7 @@ public class MemberNotFoundException extends Exception {
     @Override
     public String getMessage() {
 //        TODO: override message
-        return String.format("Member with ID %d does not exist", memberID);
+        return String.format("com.library.Member with ID %d does not exist", memberID);
     }
 
     public int getMemberID() {

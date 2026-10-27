@@ -1,4 +1,4 @@
-package exceptions;
+package com.library.exceptions;
 
 public class BorrowLimitExceededException extends Exception {
 
@@ -15,7 +15,7 @@ public class BorrowLimitExceededException extends Exception {
     @Override
     public String getMessage() {
 //        TODO: override message
-        return String.format("Member with %d has reached limit 5", memberID);
+        return String.format("com.library.Member with %d has reached limit 5", memberID);
     }
 
     public int getLimit() {
