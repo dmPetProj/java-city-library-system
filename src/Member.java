@@ -4,7 +4,7 @@ import exceptions.BorrowLimitExceededException;
 import java.util.ArrayList;
 import java.util.List;
 
-class Member{
+public class Member{
 
     private final int id;
 

@@ -6,7 +6,7 @@ import exceptions.MemberNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 
-class Library {
+public class Library {
 
     private final Map<Integer, Book> bookByID = new HashMap<>();
 
