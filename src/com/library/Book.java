@@ -5,14 +5,14 @@ public class Book{
 
     private final String name;
 
-    private final String auter;
+    private final String author;
 
     private boolean isAvailable;
 
-    public Book(int bookID, String name, String auter) {
+    public Book(int bookID, String name, String author) {
         this.bookID = bookID;
         this.name = name;
-        this.auter = auter;
+        this.author = author;
         this.isAvailable = true;
     }
 
@@ -24,13 +24,13 @@ public class Book{
         var anotherBook = (Book) obj;
         return bookID == anotherBook.bookID &&
                 name.equals(anotherBook.name) &&
-                auter.equals(anotherBook.auter) &&
+                author.equals(anotherBook.author) &&
                 isAvailable == anotherBook.isAvailable();
     }
 
     @Override
     public int hashCode() {
-        return 31 * bookID * name.hashCode() * auter.hashCode();
+        return 31 * bookID * name.hashCode() * author.hashCode();
     }
 
     public boolean isAvailable() {
@@ -45,8 +45,8 @@ public class Book{
         return name;
     }
 
-    public String getAuter() {
-        return auter;
+    public String getAuthor() {
+        return author;
     }
 
     public void setAvailable(boolean status) {

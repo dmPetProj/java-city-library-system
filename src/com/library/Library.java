@@ -23,13 +23,13 @@ public class Library {
 
     public void addBook(Book book){
         if (bookByID.containsKey(book.getBookID()))
-            throw new IllegalArgumentException(String.format("com.library.Book with id %d is already added", book.getBookID()));
+            throw new IllegalArgumentException(String.format("Book with id %d is already added", book.getBookID()));
         bookByID.put(book.getBookID(), book);
     }
 
     public void regMember(Member member){
         if (memberByID.containsKey(member.getId()))
-            throw new IllegalArgumentException(String.format("com.library.Member with id %d is already added", member.getId()));
+            throw new IllegalArgumentException(String.format("Member with id %d is already added", member.getId()));
         memberByID.put(member.getId(), member);
     }
 
@@ -37,15 +37,19 @@ public class Library {
         validateById(memberID, bookID);
         var member = memberByID.get(memberID);
         var book = bookByID.get(bookID);
+        if (!book.isAvailable())
+            throw new BookNotAvailableException(book.getBookID());
         member.addBorrowedBook(book);
         book.setAvailable(false);
 
     }
 
-    public void returnBook(int memberID, int bookID) throws MemberNotFoundException, BookNotFoundException {
+    public void returnBook(int memberID, int bookID) throws MemberNotFoundException, BookNotAvailableException {
         validateById(memberID, bookID);
         var member = memberByID.get(memberID);
         var book = bookByID.get(bookID);
+        if (book.isAvailable())
+            throw new BookNotAvailableException(book.getBookID());
         member.removeBorrowedBook(book);
         book.setAvailable(true);
     }

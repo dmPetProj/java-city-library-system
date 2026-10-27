@@ -24,9 +24,7 @@ public class Member{
         return List.copyOf(borrowedBooks);
     }
 
-    public void addBorrowedBook(Book book) throws BookNotAvailableException, BorrowLimitExceededException {
-        if (!book.isAvailable())
-            throw new BookNotAvailableException(book.getBookID());
+    public void addBorrowedBook(Book book) throws BorrowLimitExceededException {
         if (borrowedBooks.size() > 5)
             throw new BorrowLimitExceededException(id, 5);
         borrowedBooks.add(book);
@@ -35,7 +33,7 @@ public class Member{
     public void removeBorrowedBook(Book book){
         var ind = borrowedBooks.indexOf(book);
         if (ind == -1)
-            throw new  IllegalArgumentException(String.format("com.library.Member with id %d didnt get book with id %d", id, book.getBookID()));
+            throw new IllegalArgumentException(String.format("Member with id %d didnt get book with id %d", id, book.getBookID()));
         borrowedBooks.remove(ind);
     }
 
